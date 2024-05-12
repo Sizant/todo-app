@@ -1,10 +1,9 @@
 import mongoose, { Schema } from "mongoose";
 
 const userSchema = new Schema({
-  userName: String,
-  email: String,
+  username: String,
+  email: { type: String, unique: true },
   password: String,
-  tasks: [{ type: Schema.Types.ObjectId, ref: "Task" }],
 });
 
 const User = mongoose.models.User || mongoose.model("User", userSchema);
