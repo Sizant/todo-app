@@ -1,23 +1,25 @@
 "use client";
 
-import { HiOutlineTrash } from "react-icons/hi"
+import { HiOutlineTrash } from "react-icons/hi";
 import { useRouter } from "next/navigation";
 
-export default function DeleteBtn({id}) {
+export default function DeleteBtn({ id }) {
   const router = useRouter();
-  const removeTitle = async()=>{
-    const confirmed = confirm('Are you sure?');
+  const removeTitle = async () => {
+    const confirmed = confirm("Are you sure?");
 
-    if(confirmed) {
-      const res =await fetch(`http://localhost:3000/api/topics?id=${id}`,{
-        method: "DELETE"
+    if (confirmed) {
+      const res = await fetch(`http://localhost:3000/api/topics?id=${id}`, {
+        method: "DELETE",
       });
-      if(res.ok){
+      if (res.ok) {
         router.refresh();
       }
     }
-  }
-  return <button onClick={removeTitle} className="text-red-400">
-    <HiOutlineTrash size={24} />
-  </button>
+  };
+  return (
+    <button onClick={removeTitle} className="text-red-400">
+      <HiOutlineTrash size={24} />
+    </button>
+  );
 }

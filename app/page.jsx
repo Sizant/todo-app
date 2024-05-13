@@ -1,6 +1,4 @@
 "use client";
-import TaskList from "@/components/TaskList";
-import SignIn from "@/components/SignIn";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -23,6 +21,8 @@ export default function Home() {
       const json = await response.json();
 
       if (json.success) {
+        localStorage.setItem("token", json.token);
+
         router.push("/tasklist");
       } else {
         alert(json.message);
