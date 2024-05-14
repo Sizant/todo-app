@@ -3,7 +3,7 @@
 import { HiOutlineTrash } from "react-icons/hi";
 import { useRouter } from "next/navigation";
 
-export default function DeleteBtn({ id }) {
+export default function DeleteBtn({ id, setDel }) {
   const router = useRouter();
   const removeTitle = async () => {
     const confirmed = confirm("Are you sure?");
@@ -13,6 +13,7 @@ export default function DeleteBtn({ id }) {
         method: "DELETE",
       });
       if (res.ok) {
+        setDel((prev) => !prev);
         router.refresh();
       }
     }

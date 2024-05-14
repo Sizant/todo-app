@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 export default function Home() {
   const [newUser, setNewUser] = useState(false);
@@ -25,7 +26,7 @@ export default function Home() {
 
         router.push("/tasklist");
       } else {
-        alert(json.message);
+        toast.error(json.message);
       }
     } else {
       const response = await fetch("/api/auth/signUp", {
@@ -41,9 +42,9 @@ export default function Home() {
 
       if (json.success) {
         setNewUser(false);
-        alert(json.message);
+        toast.success(json.message);
       } else {
-        alert(json.message);
+        toast.error(json.message);
       }
     }
   };

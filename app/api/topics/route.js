@@ -13,9 +13,6 @@ export async function POST(request) {
 export async function GET(request) {
   const val = request.headers.get("authorization").split(" ")[1];
 
-  // var decoded = jwt.verify(val, "secret");
-  // console.log(decoded.email);
-
   await connectMongoDB();
   const tasks = await Task.find({ email: jwt.verify(val, "secret").email });
   return NextResponse.json({ tasks });

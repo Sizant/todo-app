@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { jwtDecode } from "jwt-decode";
+import { toast } from "react-toastify";
 
 export default function newTask() {
   const [title, setTitle] = useState("");
@@ -20,7 +21,6 @@ export default function newTask() {
     try {
       const info = localStorage.getItem("token");
       const userEmail = jwtDecode(info).email;
-      console.log(userEmail);
 
       const res = await fetch("http://localhost:3000/api/topics", {
         method: "POST",
@@ -29,8 +29,10 @@ export default function newTask() {
         },
         body: JSON.stringify({ title, email: userEmail }),
       });
+      const json = await res.json();
 
       if (res.ok) {
+        toast.success(json.message);
         router.push("/tasklist");
         router.refresh();
       } else {
@@ -40,6 +42,13 @@ export default function newTask() {
       console.log(error);
     }
   };
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      toast.error("Please Log in first");
+      router.push("/");
+    }
+  }, []);
+
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-3">
       <input

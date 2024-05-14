@@ -28,10 +28,10 @@ export async function POST(request) {
           success: true,
         });
       } else {
-        throw Error("Inavlid Credentials");
+        throw Error("Invalid email or password");
       }
     } else {
-      throw Error("Inavlid Credentials");
+      throw Error("Invalid email or password");
     }
   } catch (error) {
     return NextResponse.json({ message: error.message, success: false });
