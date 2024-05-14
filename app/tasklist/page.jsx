@@ -17,7 +17,7 @@ export default function TaskList() {
 
     const getTasks = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/topics", {
+        const res = await fetch("/api/topics", {
           headers: { Authorization: "Bearer " + credential },
         });
 

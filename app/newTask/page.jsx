@@ -22,7 +22,7 @@ export default function newTask() {
       const info = localStorage.getItem("token");
       const userEmail = jwtDecode(info).email;
 
-      const res = await fetch("http://localhost:3000/api/topics", {
+      const res = await fetch("/api/topics", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -61,7 +61,7 @@ export default function newTask() {
 
       <button
         type="submit"
-        className="bg-green-600 font-bold text-white py-3 px-6 w-fit"
+        className=" rounded-md w-fit bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
       >
         Add Task
       </button>
