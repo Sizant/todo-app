@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## About the project
+
+This assessment is for a TODO app, which is a simple tool designed to help us organize our tasks.
 
 ## Getting Started
 
-First, run the development server:
+1. Create an `.env` file and use your MongoDB connection.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+   Example:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   ```
+   MONGODB_URI = mongodb+srv://user:password@database1.7ky7dsx.mongodb.net/crud_db
+   ```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+2. Install the dependencies and run the development server using the following commands:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   ```
+   npm i
+   npm run dev
+   ```
 
-## Learn More
+3. Open the hosted site on your browser.
 
-To learn more about Next.js, take a look at the following resources:
+   Default URL: [http://localhost:3000](http://localhost:3000)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Functionality
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. **Authentication:** Users can securely sign in using email and password or register for a new account. Authentication ensures data integrity and user privacy across all app pages.
 
-## Deploy on Vercel
+2. **Todos Page:** Once authenticated, users can manage their to-do lists. All created tasks are displayed for easy access.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **New Task:** Users can quickly add new tasks to their to-do lists.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+4. **Edit Todo:** Users can easily update task details to match their needs.
+
+5. **Delete Todo:** Users have the freedom to remove tasks from their lists as needed.
+
+6. **Responsive Design:** The app is designed to be responsive and work seamlessly across different devices.
+
+7. **Error Handling:** Proper error handling has been implemented throughout the app, providing helpful messages to users when something goes wrong.
+
+## Routes
+
+1. [Home Page](http://localhost:3000)
+
+- This page is for signing in and signing up.
+
+2. [Todos Page](http://localhost:3000/tasklist)
+
+- On this page, all todos belonging to the logged-in user are displayed.
+- You can perform various actions such as creating new todos, editing, and deleting existing ones.
