@@ -4,7 +4,7 @@ This assessment is for a TODO app, which is a simple tool designed to help us or
 
 ## Getting Started
 
-1. Create an `.env` file and use your MongoDB connection.
+1. Create a `.env` file and use your MongoDB connection.
 
    Example:
 
